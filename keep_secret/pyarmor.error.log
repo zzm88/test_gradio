@@ -1,0 +1,19 @@
+6594 MainProcess 2023-05-16 11:11:21,019
+Traceback (most recent call last):
+  File "/Users/ming/Documents/GitHub/stable-diffusion-webui/venv/lib/python3.10/site-packages/pyarmor/cli/__main__.py", line 706, in main
+    main_entry(sys.argv[1:])
+  File "/Users/ming/Documents/GitHub/stable-diffusion-webui/venv/lib/python3.10/site-packages/pyarmor/cli/__main__.py", line 694, in main_entry
+    args.func(ctx, args)
+  File "/Users/ming/Documents/GitHub/stable-diffusion-webui/venv/lib/python3.10/site-packages/pyarmor/cli/__main__.py", line 237, in cmd_gen
+    builder.process(options)
+  File "/Users/ming/Documents/GitHub/stable-diffusion-webui/venv/lib/python3.10/site-packages/pyarmor/cli/generate.py", line 147, in process
+    Pytransform3.pre_build(self.ctx)
+  File "/Users/ming/Documents/GitHub/stable-diffusion-webui/venv/lib/python3.10/site-packages/pyarmor/cli/core/__init__.py", line 79, in pre_build
+    m = Pytransform3.init(ctx)
+  File "/Users/ming/Documents/GitHub/stable-diffusion-webui/venv/lib/python3.10/site-packages/pyarmor/cli/core/__init__.py", line 57, in init
+    Pytransform3._pytransform3 = m = _import_pytransform3()
+  File "/Users/ming/Documents/GitHub/stable-diffusion-webui/venv/lib/python3.10/site-packages/pyarmor/cli/core/__init__.py", line 34, in _import_pytransform3
+    return __import__(
+ImportError: dlopen(/Users/ming/Documents/GitHub/stable-diffusion-webui/venv/lib/python3.10/site-packages/pyarmor/cli/core/pytransform3.so, 0x0002): Library not loaded: /Library/Frameworks/Python.framework/Versions/3.10/Python
+  Referenced from: /Users/ming/Documents/GitHub/stable-diffusion-webui/venv/lib/python3.10/site-packages/pyarmor/cli/core/pytransform3.so
+  Reason: tried: '/Library/Frameworks/Python.framework/Versions/3.10/Python' (no such file), '/System/Library/Frameworks/Python.framework/Versions/3.10/Python' (no such file)
