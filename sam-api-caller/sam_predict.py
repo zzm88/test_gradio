@@ -6,17 +6,28 @@ from io import BytesIO
 def filename_to_base64(filename):
     with open(filename, "rb") as fh:
         return base64.b64encode(fh.read())
-
 img_filename = "sam-api-caller/sample_canny.png"
+
+#list files under sam-api-caller/output
+import os
+filelist = (os.listdir("sam-api-caller/raw/"))
+for file in filelist:
+    img_filename = "sam-api-caller/raw/"+file
+print (img_filename)
+
+
 url = "http://192.168.0.75/sam/sam-predict"
 payload = {
     "input_image": filename_to_base64(img_filename).decode(),
     "dino_enabled": True,
+    # "sam_positive_points": [[0, 0]],
     "dino_text_prompt": "clothing",
     "dino_preview_checkbox": False,
 }
 response = requests.post(url, json=payload)
 reply = response.json()
+print(reply)
+
 print(reply["msg"])
 
 grid = Image.new('RGBA', (3 * 512, 3 * 512))
@@ -24,7 +35,7 @@ def paste(img, row):
     for idx, img in enumerate(img):
         img_pil = Image.open(BytesIO(base64.b64decode(img))).resize((512, 512))
         grid.paste(img_pil, (idx * 512, row * 512))
-        # grid.show()
+        grid.show()
         #openfile and save
         #img_pil.save("sam-api-caller/sam_predict.png")
         if row == 1 or row == 2:

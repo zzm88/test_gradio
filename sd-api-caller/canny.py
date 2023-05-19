@@ -3,6 +3,7 @@
 
 import base64
 import io
+import random
 import requests
 import cv2
 from base64 import b64encode
@@ -52,7 +53,7 @@ r = js
 print(r)
 result = r['images'][0]
 image = Image.open(io.BytesIO(base64.b64decode(result.split(",", 1)[0])))
-image.save('sd-api-caller/output.png')
+image.save('sd-api-caller/'+ 'out'+ str(random.randint(0, 100000000)) + '.png')
 #save json
 with open('sd-api-caller/output.json', 'w') as f:
     f = open('sd-api-caller/output.json', 'w')
