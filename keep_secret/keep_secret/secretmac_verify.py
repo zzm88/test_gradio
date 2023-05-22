@@ -29,6 +29,15 @@ def decrypt_mac_address():
         with open(os.path.join(folder_path, "mac_address.key"), "rb") as key_file:
             encrypted = key_file.read()
     except FileNotFoundError:
+        print("首次执行")
+        #ask for password in prompt
+        psw = input("请输入管理员密码:")
+        if psw == "eeff":
+            print("密码正确")
+        else:
+            print("密码错误,请联系管理员")
+            exit()
+         
         encrypt_mac_address(get_mac_address())
         with open(os.path.join(folder_path, "mac_address.key"), "rb") as key_file:
             encrypted = key_file.read() 
@@ -58,10 +67,7 @@ def verify_mac_address():
 actual_mac = get_mac_address()
 decrypted_mac = decrypt_mac_address()
 
-# if actual_mac == decrypted_mac:
-#     print('MAC addresses match. Continue with the script...')
-#     # Continue with the rest of your script here
-# else:
-#     print('MAC addresses do not match. Exiting...')
-#     exit()
 
+
+
+        
