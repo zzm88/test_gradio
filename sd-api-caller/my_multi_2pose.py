@@ -12,10 +12,10 @@ url = "http://192.168.0.75"
 # url = "http://192.168.0.135:8899"
 
 # Read Image in RGB order
-pose_img = cv2.imread('sd-api-caller/sample_multi_pose_body.png')[:, :, ::-1]
-hand_img = cv2.imread("sd-api-caller/sample_multi_pose_hand.png")
+pose_img = cv2.imread('sd-api-caller/sample/sample_multi_pose_body.png')[:, :, ::-1]
+hand_img = cv2.imread("sd-api-caller/sample/sample_multi_pose_hand.png")
 #save image as "debug_canny.png"
-cv2.imwrite('sd-api-caller/debug_hand.png', hand_img)
+cv2.imwrite('sd-api-caller/debug/debug_hand.png', hand_img)
 
 
 # Encode into PNG and send to ControlNet

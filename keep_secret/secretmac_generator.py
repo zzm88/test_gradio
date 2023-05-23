@@ -25,7 +25,7 @@ def encrypt_mac_address(mac_address):
     f = Fernet(key)
     mac_address = mac_address.encode()
     encrypted = f.encrypt(mac_address)
-    with open(os.path.join(folder_path, "mac_address.key"), "wb") as key_file:
+    with open(os.path.join(folder_path, "./mac_address.key"), "wb") as key_file:
         key_file.write(encrypted)
 
 def gen_unvalid_mac_secret():
